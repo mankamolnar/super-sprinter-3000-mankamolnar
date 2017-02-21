@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        <h1>User Story Manager</h1>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        <a href="/story" class="btn btn-primary" role="button">Add new User Story</a>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Story Title</th>
+                    <th>User Story</th>
+                    <th>Acceptance Criteria</th>
+                    <th>Business Value</th>
+                    <th>Estimation</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for story in all_stories %}
+                <tr>
+                    <td>{{ story["id"] }}</td>
+                    <td>{{ story["story_title"] }}</td>
+                    <td>{{ story["user_story"] }}</td>
+                    <td>{{ story["acceptance_criteria"] }}</td>
+                    <td>{{ story["business_value"] }}</td>
+                    <td>{{ story["estimation"] }}</td>
+                    <td>{{ story["status"] }}</td>
+                    <td>
+                        <a href="/story/{{ story['id'] }}"><span class='glyphicon glyphicon-pencil'></span></a>
+                        <a href="/delete/{{ story['id'] }}"><span class='glyphicon glyphicon-trash'></span></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+{% endblock %}

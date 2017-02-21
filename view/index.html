@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Super sprinter 3000</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/3.1.2/jquery.bootstrap-touchspin.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/3.1.2/jquery.bootstrap-touchspin.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#business_value").TouchSpin({
+                min: 100,
+                max: 1500,
+                step: 100,
+                initval: 100,
+                decimals: 0,
+                verticalbuttons: true
+            });
+
+            $("#estimation").TouchSpin({
+                min: 0.5,
+                max: 1500,
+                step: 0.5,
+                initval: 0.5,
+                decimals: 1,
+                verticalbuttons: true
+            });
+        });
+    </script>
+
+    <style>
+        .form-group.required label:after { 
+            content:"*";
+            color:red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Super Sprinter 3000</a>
+                    </div>
+
+                    <ul class="nav navbar-nav">
+                        {% if "list" in url_rule or url_rule == "/" %}
+                            <li class="active"><a href="/list">List all</a></li>
+                        {% else %}
+                            <li><a href="/list">List all</a></li>
+                        {% endif %}
+
+                        {% if "story" in url_rule %}
+                            <li class="active"><a href="/story">Add</a></li>
+                        {% else %}
+                            <li><a href="/story">Add</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>
