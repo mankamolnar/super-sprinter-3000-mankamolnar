@@ -41,3 +41,15 @@ class UserStories(BaseModel):
         }
         return story
 
+    @classmethod
+    def get_empty_story(cls):
+        story = {
+            "id": "",
+            "story_title": "",
+            "user_story": "",
+            "acceptance_criteria": "",
+            "business_value": 0,
+            "estimation": 0,
+            "status": 0
+        }
+        return story
