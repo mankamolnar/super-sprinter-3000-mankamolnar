@@ -1,0 +1,8 @@
+#content_container {
+    margin-top: 50px;
+}
+
+.form-group.required label:after { 
+    content:"*";
+    color:red;
+}
